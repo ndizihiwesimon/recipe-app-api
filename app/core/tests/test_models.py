@@ -1,5 +1,5 @@
 from django.test import TestCase
-from  django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model
 
 
 class ModelTests(TestCase):
@@ -9,8 +9,8 @@ class ModelTests(TestCase):
         email = 'test@test.com'
         password = 'Test@123'
         user = get_user_model().objects.create_user(
-            email = email,
-            password = password
+            email=email,
+            password=password
         )
 
         self.assertEqual(user.email, email)
@@ -22,7 +22,7 @@ class ModelTests(TestCase):
         user = get_user_model().objects.create_user(email, 'test123')
 
         self.assertEqual(user.email, email.lower())
-    
+
     def test_new_user_invalid_email(self):
         """Test creating user with no email raises error"""
         with self.assertRaises(ValueError):

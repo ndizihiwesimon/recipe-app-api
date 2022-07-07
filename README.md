@@ -7,3 +7,4 @@ Recipe application API. Using TDD and Docker containers
 - installed docker requirements
 - run docker build
 - run docker compose build
+- continue tomorrow

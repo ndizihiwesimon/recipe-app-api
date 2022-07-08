@@ -7,7 +7,7 @@ from rest_framework.test import APIClient
 from rest_framework import status
 
 
-CREATE_USER_URL = reverse("user:create")
+CREATE_USER_URL = reverse("User:create")
 
 
 def create_user(**params):
@@ -17,7 +17,7 @@ def create_user(**params):
 class PublicUserApiTest(TestCase):
     """Test the users API (public)"""
 
-    def setup(self):
+    def setUp(self):
         """Test creating user with valid payload is successful"""
         payload = {
             "email": "test@test.com",

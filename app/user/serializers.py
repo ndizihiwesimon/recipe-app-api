@@ -3,9 +3,9 @@ from django.contrib.auth import get_user_model, authenticate
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework import serializers
- 
 
- class UserSerializer(serializers.ModelSerializer):
+
+class UserSerializer(serializers.ModelSerializer):
     """Serializer for User objects"""
     class Meta:
         model = get_user_model()

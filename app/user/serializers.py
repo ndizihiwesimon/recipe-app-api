@@ -26,8 +26,8 @@ class AuthTokenSerializer(serializers.Serializer):
 
     def validate(self, attrs):
         """ Validate and authenticate the user. """
-        email=attrs.get('email')
-        password=attrs.get('password')
+        email = attrs.get('email')
+        password = attrs.get('password')
 
         user = authenticate(
             request=self.context.get('request'),
@@ -38,5 +38,5 @@ class AuthTokenSerializer(serializers.Serializer):
             msg = _('Unable to authenticate user with provided credentials')
             raise serializers.ValidationError(msg, code='authentication')
 
-        attrs['user']=user
+        attrs['user'] = user
         return attrs

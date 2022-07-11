@@ -1,4 +1,4 @@
-""" Settings for the application"""
+""" Settings for the project"""
 import os
 from pathlib import Path
 

@@ -134,4 +134,6 @@ class PrivateUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
-    
+    def test_update_user_profile(self):
+        """Test that updating the user profile for authenticated user"""
+        

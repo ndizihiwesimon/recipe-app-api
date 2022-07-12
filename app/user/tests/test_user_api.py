@@ -136,4 +136,11 @@ class PrivateUserApiTests(TestCase):
 
     def test_update_user_profile(self):
         """Test that updating the user profile for authenticated user"""
-        payload = {'name': 'John', 'email': 'john@example.com', 'password': 'password', }        
+        payload = {'name': 'New Nomiso', 'email': 'new@nomisodev.com', 'password': 'NewPassword'}
+
+        res = self.client.patch(ME_URL, payload)
+
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.name, payload['name'])
+        self.assertTrue(self.user.check_password(payload['password']))
+        self.assertEqual(res.status_code, status.HTTP_200_OK)

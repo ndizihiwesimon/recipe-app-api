@@ -1,3 +1,4 @@
+from os import stat
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.urls import reverse
@@ -114,3 +115,11 @@ class PrivateUserApiTests(TestCase):
             password='testPass',
             name='test'
         )
+        self.client = APIClient()
+        self.client.force_authenticate(user=self.user)
+
+    def test_retrieve_profile_success(self):
+        """Test retrieving profile for logged in user"""
+        res = self.client.get(ME_URL)
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
